@@ -1,0 +1,39 @@
+{
+  "name": "@redactjp/redact",
+  "version": "0.1.0",
+  "description": "Personal information masking library for Japanese text",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && node build.js",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/**/*.test.ts",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "privacy",
+    "masking",
+    "redaction",
+    "personal-information",
+    "japanese"
+  ],
+  "author": "redactjp",
+  "license": "MIT",
+  "dependencies": {
+    "sudachi": "^0.1.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

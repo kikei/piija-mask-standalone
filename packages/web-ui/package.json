@@ -1,0 +1,37 @@
+{
+  "name": "@redactjp/web-ui",
+  "version": "0.1.0",
+  "description": "Web UI for personal information masking",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "tsc && node build.js",
+    "build:all": "npm run build && npm run build:dict",
+    "build:dict": "node compress.js",
+    "dev": "node dev-server.js",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "format": "prettier --write .",
+    "test": "tsx --test tests/**/*.test.ts",
+    "test:e2e": "tsx --test tests/e2e.test.ts",
+    "morphology-test": "node scripts/morphology-test.mjs",
+    "analyze": "tsx scripts/analyze.ts"
+  },
+  "dependencies": {
+    "@redactjp/redact": "file:../redact",
+    "brotli-wasm": "^3.0.1",
+    "sudachi": "^0.1.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "esbuild": "^0.19.0",
+    "jsdom": "^25.0.0",
+    "playwright": "^1.40.0",
+    "prettier": "^3.6.2",
+    "tsx": "^4.7.0",
+    "typescript": "^5.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

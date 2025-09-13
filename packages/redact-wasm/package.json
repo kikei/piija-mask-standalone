@@ -1,0 +1,34 @@
+{
+  "name": "@redactjp/redact-wasm",
+  "version": "0.1.0",
+  "description": "WebAssembly-based Japanese morphological analysis for personal information masking",
+  "type": "module",
+  "main": "pkg/redact_wasm.js",
+  "types": "pkg/redact_wasm.d.ts",
+  "files": [
+    "pkg"
+  ],
+  "scripts": {
+    "build": "wasm-pack build --release --target bundler --out-dir pkg",
+    "build:dev": "wasm-pack build --dev --target bundler --out-dir pkg",
+    "test": "wasm-pack test --node",
+    "clean": "rm -rf pkg target"
+  },
+  "keywords": [
+    "wasm",
+    "webassembly",
+    "japanese",
+    "morphological-analysis",
+    "privacy",
+    "masking",
+    "sudachi"
+  ],
+  "author": "redactjp",
+  "license": "MIT",
+  "devDependencies": {
+    "wasm-pack": "^0.12.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

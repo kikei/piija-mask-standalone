@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "strict": true,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "removeComments": false,
+    "importHelpers": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@redactjp/redact": ["./packages/redact/src/index.ts"],
+      "@redactjp/redact/*": ["./packages/redact/src/*"]
+    }
+  },
+  "include": ["packages/*/src/**/*", "packages/*/test/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+}

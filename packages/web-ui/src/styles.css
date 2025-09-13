@@ -1,0 +1,420 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue',
+    Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  min-height: 100vh;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.header h1 {
+  font-size: 24px;
+  color: #2c3e50;
+}
+
+.header-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.reset-button {
+  background: none;
+  border: none;
+  color: #3498db;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+.reset-button:hover {
+  color: #2980b9;
+}
+
+/* Main layout */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Mask controls (sticky bar for pre-mask state) */
+.mask-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 0;
+  position: sticky;
+  bottom: 0;
+  background-color: white;
+  z-index: 10;
+}
+
+/* Uniform sizing for header buttons */
+.header-controls button {
+  padding: 8px 18px;
+  font-size: 14px;
+}
+
+.input-textarea {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 200px;
+}
+
+.input-textarea.auto-resize {
+  resize: none;
+  overflow: hidden;
+}
+
+.input-textarea:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.input-controls {
+  display: flex;
+  justify-content: center;
+}
+
+.mask-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.mask-button:hover {
+  background-color: #2980b9;
+}
+
+.mask-button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.back-button {
+  background-color: #7f8c8d;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.back-button:hover {
+  background-color: #6c7a7d;
+}
+
+.clear-button {
+  background-color: white;
+  color: #555;
+  border: 1px solid #ccc;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.clear-button:hover {
+  background-color: #f5f5f5;
+}
+
+.clear-button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+/* Output section */
+.output-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Content panels */
+.content-panel {
+  display: block;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: white;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-display {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 15px;
+  min-height: 200px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  user-select: text;
+}
+
+/* Masked text specific styles */
+.masked-token {
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 4px;
+  padding: 2px 4px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 1px;
+  transition: background-color 0.2s;
+}
+
+.masked-token:hover {
+  background-color: #ffeaa7;
+}
+
+.masked-token.original {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.masked-token.original:hover {
+  background-color: #c3e6cb;
+}
+
+/* Output controls */
+.output-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  gap: 10px;
+  padding: 15px 0;
+  position: sticky;
+  bottom: 0;
+  background-color: white;
+  border-top: 1px solid #e0e0e0;
+  z-index: 10;
+}
+
+.copy-button {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.copy-button:hover {
+  background-color: #229954;
+}
+
+.copy-button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.copy-button-subtle {
+  background-color: white;
+  color: #555;
+  border: 1px solid #ccc;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.copy-button-subtle:hover {
+  background-color: #f5f5f5;
+}
+
+.copy-button-subtle:disabled {
+  background-color: #f5f5f5;
+  color: #bbb;
+  border-color: #ddd;
+  cursor: not-allowed;
+}
+
+.copy-and-clear-button {
+  position: absolute;
+  right: 0;
+  background-color: white;
+  color: #555;
+  border: 1px solid #ccc;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.copy-and-clear-button:hover {
+  background-color: #f5f5f5;
+}
+
+/* Message */
+.message {
+  background-color: #e8f4fd;
+  border: 1px solid #bee5eb;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #0c5460;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* Help message: fused with the top edge of .content-panel */
+#helpMessage {
+  margin: -20px -20px 16px -20px;
+  border-radius: 8px 8px 0 0;
+  border: none;
+  border-bottom: 1px solid #bee5eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+/* Error message */
+.error-message {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 6px;
+  padding: 12px;
+  color: #721c24;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Selection styles */
+::selection {
+  background-color: #3498db;
+  color: white;
+}
+
+.text-display::selection {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Loading state */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.loading-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 30px;
+}
+
+.loading-text {
+  color: #7f8c8d;
+  font-size: 14px;
+  min-width: 240px;
+  text-align: center;
+}
+
+.loading-ellipsis {
+  margin-left: 0.25em;
+}
+
+.loading-ellipsis span {
+  display: inline-block;
+  color: #7f8c8d;
+  font-size: 18px;
+  font-weight: bold;
+  animation: ellipsis-bounce 1.2s ease-in-out infinite;
+}
+
+.loading-ellipsis span:nth-child(1) {
+  animation-delay: 0s;
+}
+.loading-ellipsis span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.loading-ellipsis span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes ellipsis-bounce {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-6px);
+  }
+}
+
+.progress-bar-track {
+  width: 240px;
+  height: 6px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #3498db;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}

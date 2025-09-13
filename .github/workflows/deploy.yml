@@ -1,0 +1,41 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - run: npm ci
+
+      - name: Restore sudachi cache
+        uses: actions/cache@v4
+        with:
+          path: packages/web-ui/dist/sudachi-bundle.js.br
+          key: sudachi-${{ hashFiles('package-lock.json') }}
+
+      - run: |
+          npm run build -w packages/redact
+          npm run build -w packages/web-ui
+
+      - name: Compress dictionary
+        run: npm run build:dict
+        working-directory: packages/web-ui
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: packages/web-ui/dist
