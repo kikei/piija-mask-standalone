@@ -15,8 +15,6 @@
 ## 実行環境
 
 - Node.js 18 以上
-- npm 9 以上
-- 最新版の主要ブラウザ (Chrome / Edge / Firefox / Safari)
 
 ## 使い方
 
