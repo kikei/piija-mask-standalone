@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>個人情報伏せ字ツール</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>個人情報伏せ字ツール</h1>
+        <div id="headerControls" class="header-controls">
+          <button id="maskButton" class="mask-button" disabled>マスク</button>
+          <button
+            id="backToInputButton"
+            class="back-button"
+            style="display: none"
+          >
+            入力に戻る
+          </button>
+          <button id="copyButtonTop" class="copy-button-subtle">コピー</button>
+          <button id="clearButton" class="clear-button">消去</button>
+        </div>
+      </header>
+
+      <main class="main">
+        <section class="output-section">
+          <div id="originalContent" class="content-panel">
+            <textarea
+              id="inputText"
+              class="input-textarea auto-resize"
+              placeholder="ここに文章を貼り付けてください"
+              rows="12"
+            ></textarea>
+          </div>
+
+          <div id="maskControls" class="mask-controls" style="display: none">
+            <div
+              id="loadingIndicator"
+              class="loading-indicator"
+              style="display: none"
+            >
+              <div id="loadingText" class="loading-text">
+                オフライン辞書データをダウンロード中<span
+                  id="loadingEllipsis"
+                  class="loading-ellipsis"
+                  ><span>.</span><span>.</span><span>.</span></span
+                >
+              </div>
+              <div class="progress-bar-track">
+                <div id="progressBar" class="progress-bar"></div>
+              </div>
+            </div>
+            <button id="maskButtonSticky" class="mask-button" disabled>
+              マスクする
+            </button>
+          </div>
+
+          <div id="maskedContent" class="content-panel" style="display: none">
+            <div id="helpMessage" class="message" style="display: none">
+              マウスでドラッグすると追加でマスクできます。マスク部分をクリックすると解除します。
+            </div>
+            <div class="text-display" id="maskedDisplay"></div>
+          </div>
+
+          <div
+            id="outputControls"
+            class="output-controls"
+            style="display: none"
+          >
+            <button id="copyButton" class="copy-button">コピーする</button>
+            <button id="copyAndClearButton" class="copy-and-clear-button">
+              コピーして消去
+            </button>
+          </div>
+        </section>
+
+        <div
+          id="errorMessage"
+          class="error-message"
+          style="display: none"
+        ></div>
+      </main>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
