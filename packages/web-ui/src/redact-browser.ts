@@ -1,5 +1,5 @@
 // Browser-compatible version of redact functionality
-// Note: This version doesn't include Japanese name detection (kuromoji) for browser compatibility
+// Name detection uses Sudachi via sudachi-integration.ts
 
 import { PHONE_REGEX, maskPostalCode } from '@redactjp/redact';
 

@@ -6,7 +6,7 @@
 
 ### @redactjp/redact
 
-抽出・置換ロジックと人名検出 (kuromoji)。ブラウザ/Node 両対応。
+抽出・置換ロジックと人名検出 (Sudachi)。ブラウザ/Node 両対応。
 
 ### @redactjp/web-ui
 
@@ -52,4 +52,4 @@ npx http-server dist -p 8080
 
 ## ライセンス表示
 
-- kuromoji と辞書 (IPADIC など) のライセンス表記を同梱してください。
+- Sudachi と辞書のライセンス表記を同梱してください。
