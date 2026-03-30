@@ -11,7 +11,7 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Point @redactjp/redact to TypeScript source so esbuild can tree-shake
-// away kuromoji (Node.js only) which is unused in the browser build.
+// away Node.js-only code which is unused in the browser build.
 const redactAlias = {
   '@redactjp/redact': resolve(__dirname, '../redact/src/index.ts'),
 };
